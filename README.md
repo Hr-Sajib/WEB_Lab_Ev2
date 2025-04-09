@@ -1,5 +1,3 @@
-# WEB_Lab_Ev2
-
 # Web Course Labs – Lab 3 & Lab 4
 
 This repository contains two web development lab projects focused on server-side programming, database connectivity, and basic frontend design.
