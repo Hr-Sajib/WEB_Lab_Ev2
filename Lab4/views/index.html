@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Data</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <h2>User Data</h2>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchName" placeholder="Search by name..." />
+    <input type="text" id="searchEmail" placeholder="Search by email..." />
+    <button onclick="searchUsers()" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer;">Search</button>
+  </div>
+
+  <!-- Table to display users -->
+  <table id="userTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="userTableBody"></tbody>
+  </table>
+
+  <!-- Button to show the add form -->
+  <div class="actions">
+    <button onclick="showAddForm()" class="add-btn">Add New User</button>
+  </div>
+
+  <!-- Add User Form (hidden by default) -->
+  <div id="addForm" class="form-container" style="display: none;">
+    <h3>Add New User</h3>
+    <form id="addUserForm" action="/add" method="POST">
+      <label for="addName">Name:</label><br />
+      <input type="text" id="addName" name="name" required /><br /><br />
+      <label for="addAge">Age:</label><br />
+      <input type="number" id="addAge" name="age" required /><br /><br />
+      <label for="addEmail">Email:</label><br />
+      <input type="email" id="addEmail" name="email" required /><br /><br />
+      <label for="addAddress">Address:</label><br />
+      <textarea id="addAddress" name="address" required></textarea><br /><br />
+      <input type="submit" value="Add User" class="submit-btn" />
+      <button type="button" onclick="hideAddForm()" class="cancel-btn">Cancel</button>
+    </form>
+  </div>
+
+  <!-- Edit User Form (hidden by default) -->
+  <div id="editForm" class="form-container" style="display: none;">
+    <h3>Edit User</h3>
+    <form id="editUserForm" method="POST">
+      <input type="hidden" id="editId" name="id" />
+      <label for="editName">Name:</label><br />
+      <input type="text" id="editName" name="name" required /><br /><br />
+      <label for="editAge">Age:</label><br />
+      <input type="number" id="editAge" name="age" required /><br /><br />
+      <label for="editEmail">Email:</label><br />
+      <input type="email" id="editEmail" name="email" required /><br /><br />
+      <label for="editAddress">Address:</label><br />
+      <textarea id="editAddress" name="address" required></textarea><br /><br />
+      <input type="submit" value="Update" class="submit-btn" />
+      <button type="button" onclick="hideEditForm()" class="cancel-btn">Cancel</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
